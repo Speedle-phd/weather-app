@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Step 1 - Include the fusioncharts core library -->
+    <script
+      type="text/javascript"
+      src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"
+    ></script>
+    <!-- Step 2 - Include the fusion theme -->
+    <script
+      type="text/javascript"
+      src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"
+    ></script>
+    <title>Location Site</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- <link rel="stylesheet" href="./normalize.css" /> -->
+    <!-- js-script -->
+
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/f63a4fc91d.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script>
+      document.documentElement.className = 'js'
+    </script>
+  </head>
+  <body>
+    <div class="loading">
+      <img src="../assets/img/sun.png" alt="Animation Sonne Ladebildschirm" />
+    </div>
+
+    <nav class="nav wrapper flex-display">
+      <header class="nav-header flex-display">
+        <h1 class="nav-headline">Weather the <span>Weather</span></h1>
+        <div class="underline"></div>
+      </header>
+      <div class="nav-list">
+        <button class="nav-btn" aria-expanded="false">
+          <p class="sr-only">Button for navigation</p>
+          <i class="fas fa-bars nav-menu"></i>
+        </button>
+        <ul class="nav-links">
+          <li class="nav-items">
+            <a href="../index.html">Dashboard</a>
+          </li>
+          <li class="nav-items">
+            <a href="./administer.html">Standortverwaltung</a>
+          </li>
+          <li class="nav-items">
+            <input
+              type="checkbox"
+              aria-label="toggle-darkmode"
+              name="darkmode-toggle"
+              id="darkmode-toggle"
+            />
+            <label for="darkmode-toggle" class="toggle-darkmode"></label>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="general-content">
+      <div class="general-content-container wrapper ">
+        <header class="flex-display">
+          <h3>Current Weather</h3>
+          <div class="underline-v2"></div>
+        </header>
+        <div class="general-info-container">
+          <table>
+            <tr>
+              <th>Temperature</th>
+              <th>Weathercondition</th>
+              <th>Windspeed</th>
+            </tr>
+            <tr class="weather-data">
+              
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="charts-container">
+      <div id="chart-container"></div>
+    </div>
+
+    <section class="daily-weather">
+      <div class="daily-weather-container">
+        <header>
+          <h2>Weather <span>Forecast</span></h2>
+          <div class="underline-v2"></div>
+        </header>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Sunrise</th>
+              <th>Min. Temperature</th>
+              <th>Max. Temperature</th>
+              <th>Weathercode</th>
+              <th>Sunset</th>
+            </tr>
+          </thead>
+          <tbody class="daily-table-body">
+
+          </tbody>
+        </table>
+        <div class="charts-container">
+          <div id="chart-rain-container">
+          </div>
+        </div>
+        <div class="charts-container">
+          <div id="chart-rainHours-container">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <script src="./location.js" type="module"></script>
+  </body>
+</html>

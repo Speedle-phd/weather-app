@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles.css" />
+      <script
+      src="https://kit.fontawesome.com/f63a4fc91d.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script>
+      document.documentElement.className = 'js'
+    </script>
+  <title>Standortverwaltung</title>
+</head>
+<body>
+      <div class="loading">
+      <img src="../assets/img/sun.png" alt="Animation Sonne Ladebildschirm">
+    </div>
+    
+      <nav class="nav wrapper flex-display">
+        <header class="nav-header flex-display">
+          <h1 class="nav-headline">Administer the <span>Weather</span></h1>
+          <div class="underline"></div>
+        </header>
+        <div class="nav-list"><button class="nav-btn" aria-expanded="false"><p class="sr-only">Button for navigation</p><i class="fas fa-bars nav-menu"></i></button>
+        <ul class="nav-links">
+          <li class="nav-items"><a href="./location.html">Wetterdetails</a></li>
+          <li class="nav-items"><a href="../index.html">Dashboard</a></li>
+          <li class="nav-items">
+            <input type="checkbox" aria-label="toggle-darkmode" name="darkmode-toggle" id="darkmode-toggle">
+            <label for="darkmode-toggle" class="toggle-darkmode"></label>
+          </li>
+        </ul>
+        </div>
+      </nav>
+      <main>
+        <section id="favorite-tile">
+        </section>
+        <section id="saved-locations">
+          <h2 class="saved-location-headline">Your locations</h2>
+            <div class="form-container">
+              <form class="nav-form location-form">
+                <div class="form-control">
+                  <input type="text" name="location" aria-label="searchfield for location" id="location" placeholder="Search for location">
+                  <i aria-hidden="true" class="fas fa-search"></i>
+                </div>
+              </form>
+              <aside class="query-container">
+                <div class="query-single-item">
+                  <header class="single-item-header">
+                    <h4>Bamberg</h4>
+                    <h5>Bavaria, DE</h5>
+                  </header>
+                  <img class="single-item-flag" src='http://flags.fmcdn.net/data/flags/mini/de.png' alt="flag">
+                </div>
+                <div class="query-single-item">
+                  <header class="single-item-header">
+                    <h4>Bamberg</h4>
+                    <h5>Bavaria, DE</h5>
+                  </header>
+                  <img class="single-item-flag" src='http://flags.fmcdn.net/data/flags/mini/de.png' alt="flag">
+                </div>
+              </aside>
+            </div>
+  
+
+          <div class="saved-locations-container">
+
+          <!-- <div class="saved-location-tile">
+            <div class="tile-location-geo">
+              <h3 class="tile-location-name">Bamberg</h3>
+              <h4 class="tile-admin-name">Bayern, Deutschland</h4>
+              <p class="tile-location-time">Time</p>
+            </div>
+            <div class="tile-location-weather">
+              <div class="tile-current-temperature">
+                <img src="" alt="">
+                <span>-5°C</span>
+              </div>
+            <div class="tile-min-max-temperature">-2° / -10°</div>
+          </div> 
+          </div> -->
+          </div>
+        </section>
+      </main>
+  <script src="./administer.js" type="module"></script>
+</body>
+</html>
+
+
+
+

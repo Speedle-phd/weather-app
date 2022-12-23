@@ -1,0 +1,678 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display?swap');
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  --hue: 193;
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(var(--hue), 61%, 89%);
+  --clr-primary-2: hsl(var(--hue), 60%, 78%);
+  --clr-primary-3: hsl(var(--hue), 61%, 67%);
+  --clr-primary-4: hsl(var(--hue), 61%, 57%);
+  /* primary/main color */
+  --clr-primary-5: hsl(var(--hue), 73%, 46%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(var(--hue), 72%, 37%);
+  --clr-primary-7: hsl(var(--hue), 73%, 27%);
+  --clr-primary-8: hsl(var(--hue), 72%, 18%);
+  --clr-primary-9: hsl(var(--hue), 74%, 9%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(212, 33%, 89%);
+  --clr-grey-2: hsl(210, 31%, 80%);
+  --clr-grey-3: hsl(211, 27%, 70%);
+  --clr-grey-4: hsl(209, 23%, 60%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 28%, 39%);
+  --clr-grey-7: hsl(209, 34%, 30%);
+  --clr-grey-8: hsl(211, 39%, 23%);
+  --clr-grey-9: hsl(209, 61%, 16%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  --max-width: 1170px;
+  --fixed-width: 450px;
+  --clr-pink: #f28ab2;
+  --clr-green: #398379;
+  --clr-blue: #3777BC;
+  --clr-gold: #c59d5f;
+  --clr-beige: #f4f0eb;
+  --clr-nice-green: hsl(174, 26%, 23%);
+}
+.darkmode{
+  --clr-white: #222;
+  --clr-black: #fff;
+  --clr-primary-7: var(--clr-primary-5);
+  --clr-primary-9: var(--clr-beige)
+}
+/*
+    =============== 
+    Global Styles
+    ===============
+    */
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: var(--clr-black);
+  color: var(--clr-white);
+  line-height: 1.5;
+  font-size: 0.875rem;
+  scroll-behavior: smooth;
+  transition: all 1000ms ease-in-out;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:where(:hover, :focus){
+  color: inherit;
+}
+/* ARIA */
+.sr-only{
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-white);
+}
+/* utility */
+.overflow-hidden {
+    overflow: hidden;
+}
+.sm-hidden{
+  display: none;
+}
+.auto-grid{
+  --min-column-size: 225px;
+  display: grid;
+  gap: clamp(1rem, 5vmax, 1.625rem);
+  grid-template-columns: repeat(auto-fit, minmax(100%, var(--min-column-size)));
+}
+.flex-display{
+  display: flex;
+  align-items: center;
+}
+.wrapper{
+  --max-width-wrapper: 1000px;
+  width: min(100vw - 2rem, var(--max-width-wrapper));
+  margin-inline: auto;
+}
+.underline{
+  width: 300px;
+  height: 5px;
+  background-color: var(--clr-primary-7);
+  margin-block: 1rem;
+}
+.underline-v2{
+  width: 150px;
+  height: 5px;
+  background-color: var(--clr-primary-8);
+  margin-block: 1rem;
+}
+
+@media screen and (min-width: 800px) {
+  .sm-hidden{
+    display: inline-block;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*
+    =============== 
+    Specific Styles
+    ===============
+    */
+body{
+  display: grid;
+  place-content: center;
+}
+.js .loading{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  z-index: 10;
+  background-color: var(--clr-black);
+
+}
+.js .loading img{
+  width: 200px;
+  aspect-ratio: 1/1;
+  animation: spinningSun 3s linear infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes spinningSun {
+    from {
+      transform: rotate(0)
+    } to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
+/* NAV */
+.nav{
+  /* border: 1px solid black; */
+  margin: 2.5rem 0 1.5rem 0;
+  justify-content: center;
+  flex-direction: column;
+}
+.nav-headline{
+  text-align: center;
+}
+.nav-header{
+  flex-direction: column;
+}
+.nav-header span{
+  color: var(--clr-primary-7)
+}
+.nav-btn{
+  --h: 35px;
+  height: var(--h);
+  background-color: transparent;
+  color: var(--clr-primary-7);
+  border: 2px currentColor solid;
+  border-radius: 3px;
+  padding: 0.2rem 0.4rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.nav-btn:where(:focus-visible, :hover){
+  background-color: var(--clr-primary-7);
+  color: var(--clr-black);
+  outline: none;
+}
+.nav-list{
+  position: relative;
+}
+.nav-links{
+  position: absolute;
+  top: var(--h);
+  left: 50%;
+  translate: -50% 10px;
+  z-index: 100;
+  border: 5px solid var(--clr-primary-7, --clr-white);
+  background-color: var(--clr-primary-9);
+  width: 300px;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 2px;
+
+  transform: scaleY(0);
+  transition: transform 250ms linear;
+  transform-origin: top;
+}
+.nav-links.active{
+  transform: scaleY(1);
+}
+
+.nav-items{
+  --h-items: 30px;
+  margin-block: 0.8rem;
+  height: var(--h-items);
+  position: relative;
+  max-width: min-content;
+  margin-inline: auto;
+
+}
+
+
+.nav-items:not(:last-child)::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  bottom: 0;
+  translate: -50% 5px;
+  height: 3px;
+  background-color: var(--clr-primary-7);
+  scale: 0;
+  transition: scale 250ms linear;
+}
+.nav-items:hover::after{
+  scale: 1;
+}
+.nav-items input{
+  display: none;
+  appearance: none;
+}
+.nav-items:last-child{
+  max-width: none;
+  width: 100px;
+}
+.nav-items label{
+  display: inline-block;
+  width: 90px;
+  height: var(--h-items);
+  background-color: #fff;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+}
+.nav-items label::after {
+  content: url('./assets/img/sun-line.svg');
+  /* Add in the image. You could also add an icon by the using the icon's unicode (sites like fontawesome.com provide this). */
+  width: 40px;
+  height: 40px;
+  /* Making the icon slightly taller than the button container. */
+  background-color: #e03c3c;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+  position: absolute;
+  top: -5px;
+  /* Since the button has a height of 35px and the ::after has 40px, we offset the difference by pushing it up by 5px to center this element vertically. */
+  left: 0;
+  display: grid;
+  /* Used for centering the icon image in the middle in conjunction with place content center. */
+  place-content: center;
+  line-height: 0;
+  /*By default this will have a line height. This means that the image will not be perfectly centered by using the properties above. To make sure we can center this image in the middle, we make the line height 0. */
+  transition: background-color 1s,
+      transform 1s ease-in;
+}
+
+#darkmode-toggle:checked+.toggle-darkmode::after {
+  content: url('./assets/img/moon-line.svg');
+  /* Switching the images when clicked. */
+  background-color: #1f257f;
+  transform: translateX(50px) rotate(360deg);
+  /* Since the width of the button is 90px and the pseudo element is 40px we translate by a number that adds up to 90. So we translate to the right by 50px ( 40 + 50 = 90 width of the button). We also rotate this element by 360 degrees. */
+}
+
+
+/* NAV END */
+
+/* section landing weather */
+.landing-weather{
+  flex-direction: column;
+  justify-content: center;
+  margin-block-end: 2rem;
+}
+.location-link{
+  position: relative;
+}
+
+/* TODO 
+*/
+
+.location-card{
+  width: max(40vw, 300px);
+  aspect-ratio: 1/1;
+  background-size: cover;
+  position: relative;
+  /* mix-blend-mode:exclusion; */
+  background-repeat: no-repeat;
+  border-radius: 8px;
+}
+
+.location-card.daytime{
+  background: url(./assets/img/daysky.jpg);
+}
+.location-card.evetime{
+  background: url(./assets/img/eveningsky.jpg);
+  background-position: 90%;
+}
+.location-card.nighttime{
+  background: url(./assets/img/night-sky\ \(3\).jpg);
+}
+
+.location-card-text-content{
+  position: absolute;
+  z-index: 2;
+  width: max(25vw, 200px);
+  aspect-ratio: 1/0.8;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background-color: var(--clr-grey-1); */
+  color: #fff;
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter:blur(30px);
+  text-align: center;
+}
+.location-card-text-content h2{
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.location-card-text-content [class*="-container"]{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.location-card-text-content i{
+  align-self: center;
+}
+
+/* section landing weather end */
+
+/* administer start */
+
+#favorite-tile,#saved-locations{
+  margin-block: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.favorite-tile-headline{
+  color: var(--clr-gold);
+  text-align: center;
+}
+.favorite-container, .saved-location-tile{
+  border: 4px solid var(--clr-primary-7);
+  background-color: var(--clr-primary-9);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+.location-time{
+  transition: color 1000ms linear;
+}
+.favorite-container{
+  width: min(90vw, 450px)
+}
+.favorite-container span{
+  font-weight: 900;
+}
+.weathercode{
+  margin-block-start: 1rem;
+  font-size: 0.7rem;
+}
+.saved-locations-container{
+  display: grid;
+  width: min(90vw,100%);
+  gap: 0.7rem;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(min(90vw, 400px), 450px));
+}
+.fa-sun, .star-active{
+  color: var(--clr-gold)
+}
+.fa-moon{
+  color: var(--clr-primary-8)
+}
+.fa-location-dot{
+  margin-left: 0.5rem
+}
+.empty-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.jump-to-search-btn{
+  padding: 0.8rem 0.5rem;
+  width: min(250px, 100%);
+  font-size: min(5vmin, 1.1rem);
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: var(--clr-black);
+  color: var(--clr-white);
+  transition: background-color 250ms ease-in-out
+}
+.jump-to-search-btn:where(:hover, :focus-visible){
+  background-color: #333;
+}
+.fa-star{
+  cursor: pointer;
+}
+.trash-icon{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: hsl(0, 70%, 20%);
+}
+.saved-location-tile{
+  position: relative;
+  cursor: pointer;
+}
+
+/* FORM */
+
+.form-container{
+  position: relative;
+}
+
+.nav-form{
+  height: 2rem;
+  margin: 1rem 0;
+}
+.form-control{
+  border: 1px solid var(--clr-white);
+  border-radius: 100vmin;
+  padding: 0.5rem 1rem;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.form-control #location{
+  border: none;
+  background-color: transparent;
+  color: var(--clr-white);
+}
+.form-control #location:where(:focus, :focus-visible, :focus-within){
+  border: none;
+  outline: none;
+}
+.nav-form:has(#location:where(:focus, :focus-visible, :focus-within)) .form-control{
+  border: 3px solid var(--clr-white)
+}
+
+.query-container{
+  visibility: hidden;
+  z-index: -10;
+  width: min(200px, 90vw);
+  border: 5px solid transparent;
+  background: linear-gradient(var(--clr-black), var(--clr-black)) padding-box,
+  linear-gradient(var(--clr-primary-7), var(--clr-primary-8)) border-box;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+}
+.query-active{
+  visibility: visible !important;
+  z-index: 10 !important;
+}
+.query-single-item:where(:hover, :focus-visible, :focus){
+  background-color: var(--clr-blue);
+}
+
+.query-single-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--clr-grey-7);
+  cursor: pointer;
+}
+.query-single-item img{
+  width: 30px;
+  height: 20px;
+}
+
+/* administer end */
+
+/* ERROR */
+
+.error-container{
+  position: absolute;
+  top: 0;
+  padding: 1rem;
+  border: 10px solid hsl(0, 70%, 20%);
+  background-color: var(--clr-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* WEATHERDETAILS */
+
+.charts-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+#chart-container,
+#chart-rain-container,
+#chart-rainHours-container{
+  width: min(95vw, 700px);
+}
+
+.general-content{
+  margin-block: 1rem;
+}
+
+.general-content-container header{
+  flex-direction: column;
+}
+
+.general-info-container{
+  font-size: clamp(0.6rem, 3vmin, 1.1rem);
+  border: solid 5px var(--clr-primary-7);
+  width: min(90vw, 500px);
+  margin-inline: auto;
+  padding: 2rem;
+  min-width: 300px;
+}
+table{
+  width: 100%;
+}
+.general-info-container tr{
+  width: 100%;
+  justify-content: space-around;
+  /* align-items: center; */
+  display: flex;
+  gap: 0.9rem
+}
+.general-info-container th{
+  text-align: center;
+  text-decoration: underline 1px black;
+}
+.daily-weather{
+  margin-top: 1rem;
+  text-align: center;
+}
+.daily-weather *{
+  font-weight: 600;
+}
+.daily-weather header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.daily-weather span,
+.daily-weather th{
+  color: var(--clr-primary-7)
+}
+.daily-weather th {
+  padding-block-end: 1rem;
+  text-decoration: underline;
+}
+@media screen and (width < 500px) {
+  .daily-weather *:not(h2, span){
+    font-size: 0.7rem !important;
+  }
+}
+@media screen and (width < 400px) {
+  .daily-weather *:not(h2, span){
+    font-size: 0.6rem !important;
+  }
+}
+.daily-weather tbody tr td:nth-child(2){
+  color: var(--clr-gold)
+}
+.daily-weather tbody tr td:last-child{
+  color: var(--clr-primary-7)
+}
